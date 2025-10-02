@@ -1,0 +1,107 @@
+HTML CODE :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List </title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">To-Do list</div>
+        <div class="addTask">
+            <input type="text" placeholder="Add a new Task" id="inputTask">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul class="task-list" id="tasklist">
+        </ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+CSS CODE :
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(20, 217, 221);
+}
+
+.container{
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(256,222,252);
+    height: auto;
+    width: 25vw;
+    box-shadow: 4px 5px 6px;
+}
+
+.header{
+    text-align: center;
+    padding: 10px;
+    font-size: 1.7em;
+    font-weight: 900;
+    border-bottom: 0.7px solid white;
+    margin-bottom: 20px;
+}
+
+.addTask{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input{
+    padding: 7px;
+    border-radius: 5px;
+}
+
+button:hover{
+    border: 1px solid grey;
+    box-shadow: 2px 2px 2px;
+}
+
+button{
+    background-color: rgb(248, 248, 147);
+    color: rgb(11,11,11);
+    padding: 4px;
+    border-radius: 5px;
+}
+
+ul{
+    list-style: none;
+    padding: 15px;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 7px;
+}
+JAVASCRIPT :
+
+function addTask() {
+    const newTask = document.createElement('li')
+    const taskList = document.getElementById('tasklist')
+    taskList.appendChild(newTask)
+    newTask.textContent = document.getElementById('inputTask').value
+    document.getElementById('inputTask').value =  ""
+    deleteTask(newTask)
+}
+
+function deleteTask(newTask)
+{
+    const deleteBtn = document.createElement('button')
+    deleteBtn.textContent = "Delete"
+    newTask.appendChild(deleteBtn)
+    deleteBtn.onclick = function() {
+        newTask.remove()
+    }
+}
