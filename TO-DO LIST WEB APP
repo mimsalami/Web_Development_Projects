@@ -21,6 +21,9 @@ HTML CODE :
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
 CSS CODE :
 body{
     margin: 0;
@@ -85,6 +88,10 @@ li{
     padding: 8px;
     margin-bottom: 7px;
 }
+
+
+
+
 JAVASCRIPT :
 
 function addTask() {
